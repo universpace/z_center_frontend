@@ -1,6 +1,7 @@
 <script lang="ts">
     import CustomButton from "../components/CustomButton.svelte";
     import TitledInput from "../components/TitledInput.svelte";
+
     let studentList = [
         {
             "pk": 1,
@@ -158,26 +159,46 @@
     let selectedStudentId: number = -1
     let activatedTab: string | undefined = "tabProfile"
     let menuInfoList = [
-        {id:'tabProfile',
-        name:'기본정보'},
-        {id:'tabWrite',
-        name:'작성정보'},
-        {id:'tabManageGoal',
-        name:'매니징 목표'},
-        {id:'tabPromise',
-        name:'약속 구조'},
-        {id:'tabPinMoney',
-        name:'용돈 구조'},
-        {id:'tabManageWay',
-        name:'매니징 방법'},
-        {id:'tabLivingInfo',
-        name:'생활정보'},
-        {id:'tabCubeBook',
-        name:'큐브책'},
-        {id:'tabBook',
-        name:'교재 정보'},
-        {id:'tabProgram',
-        name:'프로그램 종류'},
+        {
+            id: 'tabProfile',
+            name: '기본정보'
+        },
+        {
+            id: 'tabWrite',
+            name: '작성정보'
+        },
+        {
+            id: 'tabManageGoal',
+            name: '매니징 목표'
+        },
+        {
+            id: 'tabPromise',
+            name: '약속 구조'
+        },
+        {
+            id: 'tabPinMoney',
+            name: '용돈 구조'
+        },
+        {
+            id: 'tabManageWay',
+            name: '매니징 방법'
+        },
+        {
+            id: 'tabLivingInfo',
+            name: '생활정보'
+        },
+        {
+            id: 'tabCubeBook',
+            name: '큐브책'
+        },
+        {
+            id: 'tabBook',
+            name: '교재 정보'
+        },
+        {
+            id: 'tabProgram',
+            name: '프로그램 종류'
+        },
     ]
     let toggleTable: boolean = false
 
@@ -240,7 +261,7 @@
     {/if}
     <div class={`mt-[7%] p-[15px] bg-white h-[55px] rounded-tr rounded-br text-bold ${toggleTable ? 'ml-[2%]':''}`}
          style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
-    on:click="{()=>{toggleTable = !toggleTable}}">{!toggleTable ? '<' : '>'}</div>
+         on:click="{()=>{toggleTable = !toggleTable}}">{!toggleTable ? '<' : '>'}</div>
 
 
     {#if showStudentInfo}
@@ -257,65 +278,71 @@
                                 {menu.name}</p>
                         </li>
                     {/each}
-<!--                    <li class="mr-2">-->
-<!--                        <p-->
-<!--                                id="tabProfile"-->
-<!--                                class={`${activatedTab === 'tabProfile' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-<!--                                on:click="{()=>{activatedTab = 'tabProfile'}}">-->
-<!--                            기본정보</p>-->
-<!--                    </li>-->
-<!--                    <li class="mr-2">-->
-<!--                        <p-->
-<!--                                id="tabWrite"-->
-<!--                                class={`${activatedTab === 'tabWrite' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-<!--                                on:click="{()=>{activatedTab = 'tabWrite'}}">-->
-<!--                        작성정보</p>-->
-<!--                    </li>-->
-<!--                    <li class="mr-2">-->
-<!--                        <p-->
-<!--                                id="tabManagingGoal"-->
-<!--                                class={`${activatedTab === 'tabManagingGoal' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-<!--                                on:click="{()=>{activatedTab = 'tabManagingGoal'}}">-->
-<!--                            매니징목표</p>-->
-<!--                    </li>-->
-<!--                    <li class="mr-2">-->
-<!--                        <p-->
-<!--                                id="tabPromise"-->
-<!--                                class={`${activatedTab === 'tabPromise' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-<!--                                on:click="{()=>{activatedTab = 'tabPromise'}}">-->
-<!--                            약속 구조</p>-->
-<!--                    </li>-->
-<!--                    <li class="mr-2">-->
-<!--                        <p-->
-<!--                                id="tabPinMoney"-->
-<!--                                class={`${activatedTab === 'tabPinMoney' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-<!--                                on:click="{()=>{activatedTab = 'tabPinMoney'}}">-->
-<!--                            용돈 구조</p>-->
-<!--                    </li>-->
+                    <!--                    <li class="mr-2">-->
+                    <!--                        <p-->
+                    <!--                                id="tabProfile"-->
+                    <!--                                class={`${activatedTab === 'tabProfile' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
+                    <!--                                on:click="{()=>{activatedTab = 'tabProfile'}}">-->
+                    <!--                            기본정보</p>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="mr-2">-->
+                    <!--                        <p-->
+                    <!--                                id="tabWrite"-->
+                    <!--                                class={`${activatedTab === 'tabWrite' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
+                    <!--                                on:click="{()=>{activatedTab = 'tabWrite'}}">-->
+                    <!--                        작성정보</p>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="mr-2">-->
+                    <!--                        <p-->
+                    <!--                                id="tabManagingGoal"-->
+                    <!--                                class={`${activatedTab === 'tabManagingGoal' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
+                    <!--                                on:click="{()=>{activatedTab = 'tabManagingGoal'}}">-->
+                    <!--                            매니징목표</p>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="mr-2">-->
+                    <!--                        <p-->
+                    <!--                                id="tabPromise"-->
+                    <!--                                class={`${activatedTab === 'tabPromise' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
+                    <!--                                on:click="{()=>{activatedTab = 'tabPromise'}}">-->
+                    <!--                            약속 구조</p>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="mr-2">-->
+                    <!--                        <p-->
+                    <!--                                id="tabPinMoney"-->
+                    <!--                                class={`${activatedTab === 'tabPinMoney' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
+                    <!--                                on:click="{()=>{activatedTab = 'tabPinMoney'}}">-->
+                    <!--                            용돈 구조</p>-->
+                    <!--                    </li>-->
                     <li>
                         <p class="inline-block p-4 text-gray rounded-t-lg cursor-not-allowed ">Disabled</p>
                     </li>
                 </ul>
             </div>
-            <section class="rounded-[4px] bg-white mt-[25px] p-[22px]" style="box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);">
+            <section class="rounded-[4px] bg-white mt-[25px] p-[22px]"
+                     style="box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);">
                 {#if activatedTab === 'tabProfile'}
                     <div class="flex relative">
                         <form class="w-[70%]">
-                            <TitledInput setType="text" value={studentList[selectedStudentId].name} title="이름" className="w-[40%]" placeholder="이름"/>
-                            <TitledInput setType="text" value={studentList[selectedStudentId].phoneNumber} title="전화번호" className="w-[40%]" placeholder="전화번호" divClassName="mt-[16px]"/>
-                            <TitledInput setType="date" value="2000-01-01" title="생년월일" className="w-[40%]" placeholder="이름" divClassName="mt-[16px]"/>
+                            <TitledInput setType="text" value={studentList[selectedStudentId].name} title="이름"
+                                         className="w-[40%]" placeholder="이름"/>
+                            <TitledInput setType="text" value={studentList[selectedStudentId].phoneNumber} title="전화번호"
+                                         className="w-[40%]" placeholder="전화번호" divClassName="mt-[16px]"/>
+                            <TitledInput setType="date" value="2000-01-01" title="생년월일" className="w-[40%]"
+                                         placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[80%]"/>
                     </div>
-                {:else if activatedTab==='tabWrite'}
+                {:else if activatedTab === 'tabWrite'}
                     <div class="flex relative">
                         <form class="w-[70%]">
-                            <TitledInput setType="text" value="TK" title="작성매니저" className="w-[40%]" placeholder="작성매니저이름"/>
-                            <TitledInput setType="date" value="2022-04-24" title="작성일자" className="w-[40%]" placeholder="이름" divClassName="mt-[16px]"/>
+                            <TitledInput setType="text" value="TK" title="작성매니저" className="w-[40%]"
+                                         placeholder="작성매니저이름"/>
+                            <TitledInput setType="date" value="2022-04-24" title="작성일자" className="w-[40%]"
+                                         placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[80%]"/>
                     </div>
-                {:else if activatedTab === 'tabManageGoal'}
+                    <!--{:else if activatedTab === 'tabManageGoal'}-->
 
                 {/if}
             </section>

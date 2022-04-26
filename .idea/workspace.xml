@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="97c51a5f-b170-4fac-9c9d-72fb67ce1a27" name="변경" comment="변경">
+      <change beforePath="$PROJECT_DIR$/dist/assets/Manager.f0abe5e2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/ZwonCenter.ca5f278f.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/contacts.94d14eb9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/dashboard.2f92f56b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/deals.a66389c6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index.86359c02.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index.ea9c1fef.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/settings.b6d5508b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/toggle.291acc3e.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sideBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sideBar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MainPage.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/StudentList.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/StudentList.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="sideBar" />
+        <option value="MainPage" />
+        <option value="RecordList" />
+        <option value="RecordReg" />
+        <option value="StudentList" />
+        <option value="StudentReg" />
+        <option value="Login" />
+        <option value="Assign" />
+        <option value="Settings" />
+        <option value="profile" />
+        <option value="write" />
+        <option value="manageGoal" />
+        <option value="Promise" />
+        <option value="PinMoney" />
+        <option value="ManageWay" />
+        <option value="LivingInfo" />
+        <option value="CubeBook" />
+        <option value="tabBook" />
+        <option value="Program" />
+        <option value="Button" />
+        <option value="CustomInput" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectId" id="28BlGA1V49V9Wb0GWfAxbPaBbrC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="ts.external.directory.path" value="C:\Users\woojo\Desktop\Universpace\student_management_f_tailwind\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\woojo\Desktop\Universpace\student_management_f_tailwind" />
+      <recent name="C:\Users\woojo\Desktop\Universpace\student_management_f_tailwind\src" />
+      <recent name="C:\Users\woojo\Desktop\Universpace\student_management_f_tailwind\src\components" />
+      <recent name="C:\Users\woojo\Desktop\Universpace\student_management_f_tailwind\src\components\common" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="yarn dev" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="yarn dev" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="97c51a5f-b170-4fac-9c9d-72fb67ce1a27" name="변경" comment="" />
+      <created>1650697761719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650697761719</updated>
+      <workItem from="1650697763869" duration="10853000" />
+      <workItem from="1650770744261" duration="29372000" />
+      <workItem from="1650943509044" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
