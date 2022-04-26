@@ -342,8 +342,38 @@
                         </form>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[80%]"/>
                     </div>
-                    <!--{:else if activatedTab === 'tabManageGoal'}-->
-
+                {:else if activatedTab === 'tabManageGoal'}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>매니징 목표
+                            </th>
+                            <th>
+                                설정 매니저
+                            </th>
+                            <th>
+                                설정일
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <textarea></textarea>
+                            </td>
+                            <td><select>
+                                <option>TK</option>
+                                <option>WJ</option>
+                            </select></td>
+                            <td><input type="date"></td>
+                        </tr>
+                        <tr>
+                            <td colspan={3}>
+                                <button type="button">+</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 {/if}
             </section>
         </section>
