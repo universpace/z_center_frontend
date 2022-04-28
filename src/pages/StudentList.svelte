@@ -200,8 +200,13 @@
             name: '프로그램 종류'
         },
     ]
+    let manageGoalList: number[] = []
     let toggleTable: boolean = false
-
+    let teacherList: string[] = ["TK", "WJ"]
+    const addManageGoal = () => {
+        console.log('fuck' + manageGoalList.length.toString())
+        manageGoalList = Array(...manageGoalList, 1)
+    }
 </script>
 <!--<button type="button" class="absolute top-[5%] left-[75%] w-[160px] h-[42px] rounded bg-accentBlue">-->
 <!--    <span class="text-[13px] font-semibold text-center text-white leading-[42px]">Add Student</span>-->
@@ -330,7 +335,7 @@
                             <TitledInput setType="date" value="2000-01-01" title="생년월일" className="w-[40%]"
                                          placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
-                        <CustomButton type="accent" text="수정하기" className="absolute left-[80%]"/>
+                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
                     </div>
                 {:else if activatedTab === 'tabWrite'}
                     <div class="flex relative">
@@ -340,40 +345,67 @@
                             <TitledInput setType="date" value="2022-04-24" title="작성일자" className="w-[40%]"
                                          placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
-                        <CustomButton type="accent" text="수정하기" className="absolute left-[80%]"/>
+                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
                     </div>
                 {:else if activatedTab === 'tabManageGoal'}
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>매니징 목표
-                            </th>
-                            <th>
-                                설정 매니저
-                            </th>
-                            <th>
-                                설정일
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>
-                                <textarea></textarea>
-                            </td>
-                            <td><select>
-                                <option>TK</option>
-                                <option>WJ</option>
-                            </select></td>
-                            <td><input type="date"></td>
-                        </tr>
-                        <tr>
-                            <td colspan={3}>
-                                <button type="button">+</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="flex relative">
+                        <table class="bg-white w-[70%] rounded-tl rounded-bl rounded-br h-[80%]"
+                               style=" filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
+                        >
+                            <thead class="h-[48px] border-b-[0.5px] border-gray ">
+                            <tr class="">
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    매니징 목표
+                                </th>
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    설정 매니저
+                                </th>
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    설정일
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <textarea>1234</textarea>
+                                </td>
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <select>
+                                        <option>TK</option>
+                                        <option>WJ</option>
+                                    </select></td>
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <input type="date">
+                                </td>
+                            </tr>
+                            {#each manageGoalList as goal}
+                                <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <textarea></textarea>
+                                    </td>
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <select>
+                                            {#each teacherList as teacher}
+                                                <option>{teacher}</option>
+                                            {/each}
+                                        </select></td>
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <input type="date">
+                                    </td>
+                                </tr>
+                            {/each}
+                            <tr>
+                                <td colspan={3} class="text-center">
+                                    <CustomButton buttonType="tertiary" className="text-center" text="+"
+                                                  onClick={addManageGoal}>
+                                    </CustomButton>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
+                    </div>
                 {/if}
             </section>
         </section>
