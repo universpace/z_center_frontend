@@ -1,1 +1,0 @@
-<section>StudentReg</section>
