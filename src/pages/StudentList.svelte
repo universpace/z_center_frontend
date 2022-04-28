@@ -201,11 +201,16 @@
         },
     ]
     let manageGoalList: number[] = []
+    let promiseList: number[] = []
     let toggleTable: boolean = false
     let teacherList: string[] = ["TK", "WJ"]
-    const addManageGoal = () => {
-        console.log('fuck' + manageGoalList.length.toString())
-        manageGoalList = Array(...manageGoalList, 1)
+    const addList = (type: string) => {
+        if (type === 'manage') {
+            manageGoalList = Array(...manageGoalList, 1)
+
+        } else if (type === 'promise') {
+            promiseList = Array(...promiseList, 1)
+        }
     }
 </script>
 <!--<button type="button" class="absolute top-[5%] left-[75%] w-[160px] h-[42px] rounded bg-accentBlue">-->
@@ -398,7 +403,66 @@
                             <tr>
                                 <td colspan={3} class="text-center">
                                     <CustomButton buttonType="tertiary" className="text-center" text="+"
-                                                  onClick={addManageGoal}>
+                                                  onClick={()=>addList('manage')}>
+                                    </CustomButton>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
+                    </div>
+                {:else if activatedTab === 'tabPromise'}
+                    <div class="flex relative">
+                        <table class="bg-white w-[70%] rounded-tl rounded-bl rounded-br h-[80%]"
+                               style=" filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
+                        >
+                            <thead class="h-[48px] border-b-[0.5px] border-gray ">
+                            <tr class="">
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    약속 구조
+                                </th>
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    설정 매니저
+                                </th>
+                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                                    설정일
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <textarea>1234</textarea>
+                                </td>
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <select>
+                                        <option>TK</option>
+                                        <option>WJ</option>
+                                    </select></td>
+                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                    <input type="date">
+                                </td>
+                            </tr>
+                            {#each promiseList as promise}
+                                <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <textarea></textarea>
+                                    </td>
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <select>
+                                            {#each teacherList as teacher}
+                                                <option>{teacher}</option>
+                                            {/each}
+                                        </select></td>
+                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
+                                        <input type="date">
+                                    </td>
+                                </tr>
+                            {/each}
+                            <tr>
+                                <td colspan={3} class="text-center">
+                                    <CustomButton buttonType="tertiary" className="text-center" text="+"
+                                                  onClick={()=>addList('promise')}>
                                     </CustomButton>
                                 </td>
                             </tr>
