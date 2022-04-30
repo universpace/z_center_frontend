@@ -1,6 +1,7 @@
 <script lang="ts">
     import CustomButton from "../components/CustomButton.svelte";
     import TitledInput from "../components/TitledInput.svelte";
+    import InnerTable from "../components/InnerTable.svelte";
 
     let studentList = [
         {
@@ -202,20 +203,23 @@
     ]
     let manageGoalList: number[] = []
     let promiseList: number[] = []
+    let pinMoneyList: number[] = []
+    let manageWayList: number[] = []
     let toggleTable: boolean = false
     let teacherList: string[] = ["TK", "WJ"]
     const addList = (type: string) => {
         if (type === 'manage') {
             manageGoalList = Array(...manageGoalList, 1)
-
         } else if (type === 'promise') {
             promiseList = Array(...promiseList, 1)
+        } else if (type === 'pinMoney') {
+            pinMoneyList = Array(...pinMoneyList, 1)
+        } else if (type === 'manageWay') {
+            manageWayList = Array(...manageWayList, 1)
         }
     }
 </script>
-<!--<button type="button" class="absolute top-[5%] left-[75%] w-[160px] h-[42px] rounded bg-accentBlue">-->
-<!--    <span class="text-[13px] font-semibold text-center text-white leading-[42px]">Add Student</span>-->
-<!--</button>-->
+
 <CustomButton type="accent" text="학생 추가" className="absolute top-[5%] left-[75%]"/>
 <section class="flex">
     {#if !toggleTable}
@@ -229,15 +233,6 @@
                 <th class="opacity-50 text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
                     Name
                 </th>
-                <!--        <th class="opacity-50 text-[13px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">-->
-                <!--            PhoneNumber-->
-                <!--        </th>-->
-                <!--        <th class="opacity-50 text-[13px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">-->
-                <!--            Email-->
-                <!--        </th>-->
-                <!--        <th class="opacity-50 text-[13px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">-->
-                <!--            Address-->
-                <!--        </th>-->
                 <th class="opacity-50 text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
                     inCharge
                 </th>
@@ -252,9 +247,6 @@
                             {index + 1}
                         </td>
                         <td class="text-[15px] font-medium text-left text-tableBlack text-center px-[24px] py-[14px]">{student.name}</td>
-                        <!--            <td class="text-[13px] text-left text-tableGray text-center px-[24px] py-[14px]">{student.phoneNumber}</td>-->
-                        <!--            <td class="text-[13px] text-left text-tableGray text-center px-[24px] py-[14px]">example@example.com</td>-->
-                        <!--            <td class="text-[13px] text-left text-tableGray text-center px-[24px] py-[14px]">{student.address + ' ' + student.addressDetail}</td>-->
                         <td class="text-[13px] text-left text-tableGray text-center px-[24px] py-[14px]">TK</td>
                     </tr>
                 {/if}
@@ -288,41 +280,6 @@
                                 {menu.name}</p>
                         </li>
                     {/each}
-                    <!--                    <li class="mr-2">-->
-                    <!--                        <p-->
-                    <!--                                id="tabProfile"-->
-                    <!--                                class={`${activatedTab === 'tabProfile' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-                    <!--                                on:click="{()=>{activatedTab = 'tabProfile'}}">-->
-                    <!--                            기본정보</p>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="mr-2">-->
-                    <!--                        <p-->
-                    <!--                                id="tabWrite"-->
-                    <!--                                class={`${activatedTab === 'tabWrite' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-                    <!--                                on:click="{()=>{activatedTab = 'tabWrite'}}">-->
-                    <!--                        작성정보</p>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="mr-2">-->
-                    <!--                        <p-->
-                    <!--                                id="tabManagingGoal"-->
-                    <!--                                class={`${activatedTab === 'tabManagingGoal' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-                    <!--                                on:click="{()=>{activatedTab = 'tabManagingGoal'}}">-->
-                    <!--                            매니징목표</p>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="mr-2">-->
-                    <!--                        <p-->
-                    <!--                                id="tabPromise"-->
-                    <!--                                class={`${activatedTab === 'tabPromise' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-                    <!--                                on:click="{()=>{activatedTab = 'tabPromise'}}">-->
-                    <!--                            약속 구조</p>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="mr-2">-->
-                    <!--                        <p-->
-                    <!--                                id="tabPinMoney"-->
-                    <!--                                class={`${activatedTab === 'tabPinMoney' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}-->
-                    <!--                                on:click="{()=>{activatedTab = 'tabPinMoney'}}">-->
-                    <!--                            용돈 구조</p>-->
-                    <!--                    </li>-->
                     <li>
                         <p class="inline-block p-4 text-gray rounded-t-lg cursor-not-allowed ">Disabled</p>
                     </li>
@@ -353,123 +310,30 @@
                         <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
                     </div>
                 {:else if activatedTab === 'tabManageGoal'}
-                    <div class="flex relative">
-                        <table class="bg-white w-[70%] rounded-tl rounded-bl rounded-br h-[80%]"
-                               style=" filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
-                        >
-                            <thead class="h-[48px] border-b-[0.5px] border-gray ">
-                            <tr class="">
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    매니징 목표
-                                </th>
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    설정 매니저
-                                </th>
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    설정일
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <textarea>1234</textarea>
-                                </td>
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <select>
-                                        <option>TK</option>
-                                        <option>WJ</option>
-                                    </select></td>
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <input type="date">
-                                </td>
-                            </tr>
-                            {#each manageGoalList as goal}
-                                <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <textarea></textarea>
-                                    </td>
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <select>
-                                            {#each teacherList as teacher}
-                                                <option>{teacher}</option>
-                                            {/each}
-                                        </select></td>
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <input type="date">
-                                    </td>
-                                </tr>
-                            {/each}
-                            <tr>
-                                <td colspan={3} class="text-center">
-                                    <CustomButton buttonType="tertiary" className="text-center" text="+"
-                                                  onClick={()=>addList('manage')}>
-                                    </CustomButton>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
-                    </div>
+                    <InnerTable
+                            rowData={[['매니징 목표','<textarea></textarea>'],
+                            ['설정 매니저',null],
+                            ['설정일','<input type="date"/>']]}
+                            thList={['매니징 목표', '설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
                 {:else if activatedTab === 'tabPromise'}
-                    <div class="flex relative">
-                        <table class="bg-white w-[70%] rounded-tl rounded-bl rounded-br h-[80%]"
-                               style=" filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
-                        >
-                            <thead class="h-[48px] border-b-[0.5px] border-gray ">
-                            <tr class="">
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    약속 구조
-                                </th>
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    설정 매니저
-                                </th>
-                                <th class="opacity-50 text-[14px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                                    설정일
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <textarea>1234</textarea>
-                                </td>
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <select>
-                                        <option>TK</option>
-                                        <option>WJ</option>
-                                    </select></td>
-                                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                    <input type="date">
-                                </td>
-                            </tr>
-                            {#each promiseList as promise}
-                                <tr class="border-y-[0.5px] border-gray hover:bg-accentBlue  hover:bg-opacity-20">
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <textarea></textarea>
-                                    </td>
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <select>
-                                            {#each teacherList as teacher}
-                                                <option>{teacher}</option>
-                                            {/each}
-                                        </select></td>
-                                    <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">
-                                        <input type="date">
-                                    </td>
-                                </tr>
-                            {/each}
-                            <tr>
-                                <td colspan={3} class="text-center">
-                                    <CustomButton buttonType="tertiary" className="text-center" text="+"
-                                                  onClick={()=>addList('promise')}>
-                                    </CustomButton>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
-                    </div>
+                    <InnerTable
+                            rowData={[['약속 구조','<textarea></textarea>'],
+                            ['설정 매니저',null],
+                            ['설정일','<input type="date"/>']]}
+                            thList={['약속 구조', '설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
+                {:else if activatedTab === 'tabPinMoney'}
+                    <InnerTable
+                            rowData={[['금액','<input type="number" value={0}/>'],
+                            ['용돈 약속','<input type="text" value=""/>'],
+                            ['설정 매니저',null],
+                            ['설정일','<input type="date"/>']]}
+                            thList={['금액','용돈 약속','설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
+                {:else if activatedTab === 'tabManageWay'}
+                    <InnerTable
+                            rowData={[['매니징 방법','<textarea></textarea>'],
+                            ['설정 매니저',null],
+                            ['설정일','<input type="date"/>']]}
+                            thList={['매니징 방법','설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
                 {/if}
             </section>
         </section>
