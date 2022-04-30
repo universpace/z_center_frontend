@@ -45,23 +45,10 @@
                         </td>
                     {/if}
                 {/each}
-                <!--                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">-->
-                <!--                    <textarea></textarea>-->
-                <!--                </td>-->
-                <!--                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">-->
-                <!--                    <select>-->
-                <!--                        {#each teacherList as teacher}-->
-                <!--                            <option>{teacher}</option>-->
-                <!--                        {/each}-->
-                <!--                    </select>-->
-                <!--                </td>-->
-                <!--                <td class="text-[11px] font-medium text-tableBlack text-center px-[24px] py-[14px]">-->
-                <!--                    <input type="date">-->
-                <!--                </td>-->
             </tr>
         {/each}
         <tr>
-            <td colspan={3} class="text-center">
+            <td colspan={thList.length} class="text-center">
                 <CustomButton buttonType="tertiary" className="text-center" text="+"
                               onClick={()=>addList()}>
                 </CustomButton>
