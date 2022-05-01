@@ -2,14 +2,12 @@
     import SideBar from "./components/sideBar.svelte";
     import Router from "svelte-spa-router";
     import MainPage from "./pages/MainPage.svelte";
-    import StudentList from "./pages/StudentList.svelte";
-    import StudentReg from "./pages/StudentReg.svelte";
-    import RecordList from "./pages/RecordList.svelte";
-    import RecordReg from "./pages/RecordReg.svelte";
+    import StudentList from "./pages/Student.svelte";
+    import ChartPage from "./pages/ChartPage.svelte";
+    import DailyRecord from "./pages/DailyRecord.svelte";
     import Login from "./pages/Login.svelte";
     import Assign from "./pages/Assign.svelte";
     import Settings from "./pages/Settings.svelte";
-
 </script>
 
 <style global lang="postcss">
@@ -30,12 +28,11 @@
         <Router
                 routes="{{
             '/':MainPage,
-            '/student/list':StudentList,
-            '/student/reg':StudentReg,
-            '/record/list':RecordList,
-            '/record/reg':RecordReg,
+            '/student':StudentList,
+            '/chart':ChartPage,
             '/login':Login,
             '/assign':Assign,
+            '/daily-record':DailyRecord,
             '/settings':Settings
         }}"
                 restoreScrollState>

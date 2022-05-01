@@ -38,19 +38,19 @@
                     <img src={dashboard} alt="dashboard"
                          class={`w-[20px] h-[20px] ${current === '/' ? 'color-accentBlue' : 'color-gray'}`}/>
                     <p class={`ml-[14px] font-medium text-left ${current === '/' ? 'text-accentBlue' : 'text-gray'}`}>
-                        Dashboard</p>
+                        대시보드</p>
                 </div>
-                <div class="flex mt-[20px]" on:click="{()=>{push('/student/list')}}">
+                <div class="flex mt-[20px]" on:click="{()=>{push('/student')}}">
                     <img src={contacts} alt="students" class="w-[20px] h-[20px]"/>
-                    <p class="ml-[14px] font-medium text-left text-gray">Students</p>
+                    <p class="ml-[14px] font-medium text-left text-gray">학생정보관리</p>
                 </div>
-                <div class="flex mt-[20px]" on:click="{()=>{push('/record/list')}}">
+                <div class="flex mt-[20px]" on:click="{()=>{push('/chart')}}">
                     <img src={deals} alt="records" class="w-[20px] h-[20px]"/>
-                    <p class="ml-[14px] font-medium text-left text-gray">Records</p>
+                    <p class="ml-[14px] font-medium text-left text-gray">차트</p>
                 </div>
-                <div class="flex mt-[20px]" on:click="{()=>{push('/settings')}}">
+                <div class="flex mt-[20px]" on:click="{()=>{push('/daily-record')}}">
                     <img src={settings} alt="settings" class="w-[20px] h-[20px]"/>
-                    <p class="ml-[14px] font-medium text-left text-gray">Settings</p>
+                    <p class="ml-[14px] font-medium text-left text-gray">일간기록</p>
                 </div>
             </section>
             <section class="mt-[351px] flex" on:click="{()=>{fold = !fold}}">
