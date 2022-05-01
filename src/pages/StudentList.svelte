@@ -160,6 +160,7 @@
     let selectedStudentId: number = -1
     let activatedTab: string | undefined = "tabProfile"
     let currentTabLivingInfo: string | undefined = "weekdays"
+    let currentBookInfo: string | undefined = "ing"
     let toggleTable: boolean = false
     let menuInfoList = [
         {
@@ -406,6 +407,69 @@
                         </section>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[75%] mt-4"/>
                     </div>
+                {:else if activatedTab === 'tabCubeBook'}
+                    <InnerTable
+                            rowData={[['분류','<input type="text"/>'],['내용','<textarea></textarea>']]}
+                            thList={['분류','내용']}
+                    />
+                {:else if activatedTab === 'tabBook'}
+                    <div id="book-info-tab" class="text-xs font-medium text-black text-center border-b border-black">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="mr-2">
+                                <p
+                                        id="ing"
+                                        class={`${currentBookInfo === 'ing' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}
+                                        on:click="{()=>{currentBookInfo = 'ing'}}">
+                                    진행중교재
+                                </p>
+                            </li>
+                            <li class="mr-2">
+                                <p
+                                        id="end"
+                                        class={`${ currentBookInfo === 'end' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}
+                                        on:click="{()=>{currentBookInfo = 'end'}}">
+                                    완료된 교재
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    {#if currentBookInfo === 'ing'}
+                        <InnerTable
+                                rowData={[['과목', "<select>" +
+                        "<option>선택</option>" +
+                        "<option>국어</option>" +
+                        "<option>수학</option>" +
+                        "<option>영어</option>" +
+                        "<option>탐구</option>" +
+                        "</select>"],
+                            ['교재명', "<input type='text' placeholder='ex)독사, 기탄수학 등'/>"],
+                            ['총교재량', "<input type='text' placeholder='ex)100p, 250문제 등'/>"],
+                            ['교재 시작일', "<input type='date'/>"],
+                            ['최근 진도', "<input type='number' placeholder='ex)70, 100'/>"],
+                        ]}
+                                thList={['과목','교재명','총교재량','교재 시작일', '최근 진도']}
+                                id="book-info-ing"
+                        />
+                    {:else}
+                        <InnerTable
+                                rowData={[['과목',"<select>" +
+                                 "<option>선택</option>" +
+                                 "<option>국어</option>" +
+                                 "<option>수학</option>" +
+                                 "<option>영어</option>" +
+                                 "<option>탐구</option>" +
+                                  "</select>"],
+                                ['교재명',"<input type='text' placeholder='ex)독사, 기탄수학 등'/>"],
+                                ['총교재량',"<input type='text' placeholder='ex)100p, 250문제 등'/>"],
+                                ['교재 시작일',"<input type='date'/>"],
+                                ['최근 진도',"<input type='number' placeholder='ex)70, 100'/>"],
+                                ]}
+                                thList={['과목','교재명','총교재량','교재 시작일', '최근 진도']}
+                                id="book-info-end"
+                        />
+                    {/if}
+                {:else if activatedTab === 'tabProgram'}
+                    <div>zz</div>
                 {/if}
             </section>
         </section>
