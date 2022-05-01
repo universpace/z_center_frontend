@@ -159,6 +159,8 @@
     let showStudentInfo: boolean = false
     let selectedStudentId: number = -1
     let activatedTab: string | undefined = "tabProfile"
+    let currentTabLivingInfo: string | undefined = "weekdays"
+    let toggleTable: boolean = false
     let menuInfoList = [
         {
             id: 'tabProfile',
@@ -201,23 +203,7 @@
             name: '프로그램 종류'
         },
     ]
-    let manageGoalList: number[] = []
-    let promiseList: number[] = []
-    let pinMoneyList: number[] = []
-    let manageWayList: number[] = []
-    let toggleTable: boolean = false
     let teacherList: string[] = ["TK", "WJ"]
-    const addList = (type: string) => {
-        if (type === 'manage') {
-            manageGoalList = Array(...manageGoalList, 1)
-        } else if (type === 'promise') {
-            promiseList = Array(...promiseList, 1)
-        } else if (type === 'pinMoney') {
-            pinMoneyList = Array(...pinMoneyList, 1)
-        } else if (type === 'manageWay') {
-            manageWayList = Array(...manageWayList, 1)
-        }
-    }
 </script>
 
 <CustomButton type="accent" text="학생 추가" className="absolute top-[5%] left-[75%]"/>
@@ -334,6 +320,92 @@
                             ['설정 매니저',null],
                             ['설정일','<input type="date"/>']]}
                             thList={['매니징 방법','설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
+                {:else if activatedTab === 'tabLivingInfo'}
+                    <div id="living-info-tab" class="text-xs font-medium text-black text-center border-b border-black">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="mr-2">
+                                <p
+                                        id="weekdays"
+                                        class={`${currentTabLivingInfo === 'weekdays' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}
+                                        on:click="{()=>{currentTabLivingInfo = 'weekdays'}}">
+                                    주중 목표
+                                </p>
+                            </li>
+                            <li class="mr-2">
+                                <p
+                                        id="weekends"
+                                        class={`${currentTabLivingInfo === 'weekends' ? 'text-accentBlue border-accentBlue' : 'hover:text-yellow hover:border-yellow border-transparent'} inline-block p-4 rounded-t-lg border-b-2 `}
+                                        on:click="{()=>{currentTabLivingInfo = 'weekends'}}">
+                                    일요일 목표
+                                </p>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="flex relative">
+                        <section class="mt-1 px-2 w-[50%]">
+                            {#if currentTabLivingInfo === 'weekdays'}
+                                <TitledInput
+                                        title="목표취침"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표기상"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표등원"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표학습"
+                                        className=""
+                                        setType="number"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                            {:else}
+                                <TitledInput
+                                        title="목표취침-일요일"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표기상-일요일"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표등원-일요일"
+                                        className=""
+                                        setType="time"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                                <TitledInput
+                                        title="목표학습-일요일"
+                                        className=""
+                                        setType="number"
+                                        placeholder=""
+                                        divClassName="mt-4 w-[80%]"
+                                />
+                            {/if}
+                        </section>
+                        <CustomButton type="accent" text="수정하기" className="absolute left-[75%] mt-4"/>
+                    </div>
                 {/if}
             </section>
         </section>
