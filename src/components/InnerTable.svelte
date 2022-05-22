@@ -10,7 +10,6 @@
 
     const addList = () => {
         rowArrCopy = [...rowArrCopy, Object.fromEntries(rowData)]
-        console.log(rowArrCopy)
     }
 </script>
 

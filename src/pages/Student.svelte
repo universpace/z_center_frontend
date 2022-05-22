@@ -205,29 +205,38 @@
         },
     ]
     let teacherList: string[] = ["TK", "WJ"]
+    let programArr: string[] = ["자기인식", "진로탐색"]
+    let programText: string = ''
+
+    const addProgram = () => {
+        if (programText !== '') {
+            programArr = [...programArr, programText]
+            programText = ""
+        }
+    }
 </script>
 
 <CustomButton type="accent" text="학생 추가" className="absolute top-[5%] left-[75%]"/>
-<section class="flex">
+<section class="flex h-full">
     {#if !toggleTable}
-        <table class="mt-[7%] ml-[2%] bg-white w-[20%] rounded-tl rounded-bl rounded-br h-[80%]"
-               style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));">
-            <thead class="h-[48px] border-b-[0.5px] border-gray ">
-            <tr class="">
-                <th class="opacity-50 text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                    #
-                </th>
-                <th class="opacity-50 text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                    Name
-                </th>
-                <th class="opacity-50 text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
-                    inCharge
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {#each studentList as student, index}
-                {#if index < 10}
+        <div class="h-[70%] w-[20%] mt-[7%] ml-[2%] overflow-scroll relative">
+            <table class="bg-white rounded-tl rounded-bl rounded-br w-full relative"
+                   style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));">
+                <thead class="h-[48px] border-b-[0.5px] border-gray ">
+                <tr class="">
+                    <th class="sticky top-0 bg-white text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                        #
+                    </th>
+                    <th class="sticky top-0 bg-white text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                        Name
+                    </th>
+                    <th class="sticky top-0 bg-white text-[18px] font-medium text-left text-darkBlue text-center px-[24px] py-[14px]">
+                        inCharge
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="">
+                {#each studentList as student, index}
                     <tr class={ `border-y-[0.5px] border-gray ${selectedStudentId === index ? 'bg-accentBlue bg-opacity-40' : 'hover:bg-accentBlue hover:bg-opacity-20'}`}
                         on:click="{()=>{showStudentInfo = true; selectedStudentId = index;}}">
                         <td class="text-[15px] font-medium text-left text-tableBlack text-center px-[24px] py-[14px]">
@@ -236,17 +245,10 @@
                         <td class="text-[15px] font-medium text-left text-tableBlack text-center px-[24px] py-[14px]">{student.name}</td>
                         <td class="text-[13px] text-left text-tableGray text-center px-[24px] py-[14px]">TK</td>
                     </tr>
-                {/if}
-            {/each}
-            <tr>
-                <td class="px-[24px] py-[14px] text-center" colspan={6}>
-                    <span class="text-accentBlue">{"<"}</span>
-                    <span class="mx-[50px]">1 2 3 4 ... 10</span>
-                    <span class="text-accentBlue">{">"}</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                {/each}
+                </tbody>
+            </table>
+        </div>
     {/if}
     <div class={`mt-[7%] p-[15px] bg-white h-[55px] rounded-tr rounded-br text-bold ${toggleTable ? 'ml-[2%]':''}`}
          style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));"
@@ -254,8 +256,9 @@
 
 
     {#if showStudentInfo}
-        <section class={`mt-[7%] bg-white rounded w-[60%] h-[80%] p-[20px] ${toggleTable ? 'ml-[2%]':'ml-[5%]'}`}
-                 style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));">
+        <section
+                class={`mt-[7%] bg-white rounded w-[60%] h-[80%] p-[20px] ${toggleTable ? 'ml-[2%]':'ml-[5%]'}`}
+                style="filter: drop-shadow(0px 6px 18px rgba(0,0,0,0.06));">
             <div id="tabs" class="text-sm font-medium text-black text-center border-b border-black">
                 <ul class="flex flex-wrap -mb-px">
                     {#each menuInfoList as menu}
@@ -277,11 +280,12 @@
                 {#if activatedTab === 'tabProfile'}
                     <div class="flex relative">
                         <form class="w-[70%]">
-                            <TitledInput setType="text" value={studentList[selectedStudentId].name} title="이름"
+                            <TitledInput type="text" value={studentList[selectedStudentId].name} title="이름"
                                          className="w-[40%]" placeholder="이름"/>
-                            <TitledInput setType="text" value={studentList[selectedStudentId].phoneNumber} title="전화번호"
+                            <TitledInput type="text" value={studentList[selectedStudentId].phoneNumber}
+                                         title="전화번호"
                                          className="w-[40%]" placeholder="전화번호" divClassName="mt-[16px]"/>
-                            <TitledInput setType="date" value="2000-01-01" title="생년월일" className="w-[40%]"
+                            <TitledInput type="date" value="2000-01-01" title="생년월일" className="w-[40%]"
                                          placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
@@ -289,9 +293,9 @@
                 {:else if activatedTab === 'tabWrite'}
                     <div class="flex relative">
                         <form class="w-[70%]">
-                            <TitledInput setType="text" value="TK" title="작성매니저" className="w-[40%]"
+                            <TitledInput type="text" value="TK" title="작성매니저" className="w-[40%]"
                                          placeholder="작성매니저이름"/>
-                            <TitledInput setType="date" value="2022-04-24" title="작성일자" className="w-[40%]"
+                            <TitledInput type="date" value="2022-04-24" title="작성일자" className="w-[40%]"
                                          placeholder="이름" divClassName="mt-[16px]"/>
                         </form>
                         <CustomButton type="accent" text="수정하기" className="absolute left-[75%]"/>
@@ -322,7 +326,8 @@
                             ['설정일','<input type="date"/>']]}
                             thList={['매니징 방법','설정 매니저', '설정일']} teacherArr={teacherList} id="manageGoal"/>
                 {:else if activatedTab === 'tabLivingInfo'}
-                    <div id="living-info-tab" class="text-xs font-medium text-black text-center border-b border-black">
+                    <div id="living-info-tab"
+                         class="text-xs font-medium text-black text-center border-b border-black">
                         <ul class="flex flex-wrap -mb-px">
                             <li class="mr-2">
                                 <p
@@ -349,28 +354,28 @@
                                 <TitledInput
                                         title="목표취침"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표기상"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표등원"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표학습"
                                         className=""
-                                        setType="number"
+                                        type="number"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
@@ -378,28 +383,28 @@
                                 <TitledInput
                                         title="목표취침-일요일"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표기상-일요일"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표등원-일요일"
                                         className=""
-                                        setType="time"
+                                        type="time"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
                                 <TitledInput
                                         title="목표학습-일요일"
                                         className=""
-                                        setType="number"
+                                        type="number"
                                         placeholder=""
                                         divClassName="mt-4 w-[80%]"
                                 />
@@ -413,7 +418,8 @@
                             thList={['분류','내용']}
                     />
                 {:else if activatedTab === 'tabBook'}
-                    <div id="book-info-tab" class="text-xs font-medium text-black text-center border-b border-black">
+                    <div id="book-info-tab"
+                         class="text-xs font-medium text-black text-center border-b border-black">
                         <ul class="flex flex-wrap -mb-px">
                             <li class="mr-2">
                                 <p
@@ -469,7 +475,26 @@
                         />
                     {/if}
                 {:else if activatedTab === 'tabProgram'}
-                    <div>zz</div>
+                    <section class="relative flex flex-col">
+                        <section class="flex flex-wrap">
+                            {#each programArr as program}
+                                <div class="mx-[10px] p-2 bg-iconGray rounded-[10px]">{program}</div>
+                            {/each}
+
+                        </section>
+                        <div class="flex mt-4">
+                            <TitledInput
+                                    placeholder="ex) 동기부여 등의 해당 학생의 프로그램"
+                                    divClassName="w-[40%]"
+                                    className="mt-2"
+                                    bind:value="{programText}"
+                            />
+                            <CustomButton buttonType="tertiary" text="추가하기" className=""
+                                          onClick={()=>addProgram()}/>
+                        </div>
+                        <CustomButton buttonType="accent" text="수정하기" className="absolute left-[75%]"
+                        />
+                    </section>
                 {/if}
             </section>
         </section>
